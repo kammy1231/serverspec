@@ -1,0 +1,6 @@
+{
+  "run_list": [
+    "recipe[postfix]",
+    "recipe[ammanager]"
+  ]
+}

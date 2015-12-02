@@ -1,0 +1,6 @@
+{
+  "target_host": "k00c.ss.jp",
+  "run_list": [
+    "role[active_mail]"
+  ]
+}
