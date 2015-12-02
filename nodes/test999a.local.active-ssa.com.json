@@ -1,11 +1,11 @@
 {
-  "target_host": "k00b.ss.jp",
+  "target_host": "test999a.local.active-ssa.com",
   "run_list": [
     "role[bash]"
   ],
   "attributes": {
     "environment": {
-      "set": "host"
+      "set": "aws"
     }
   }
 }

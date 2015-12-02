@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-puts "cookbook postfix"
+puts "Run Recipe postfix"
 
 if property["environment"]["set"] == "vps"
   ctid = property["openvz"]["ctid"]
@@ -8,7 +8,7 @@ if property["environment"]["set"] == "vps"
     its(:stdout) { should match 'postfix' }
   end
 end
-
+################################################################################
 if property["environment"]["set"] == "aws"
   describe command("ls") do
     its(:exit_status) { should eq 0 }
