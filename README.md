@@ -1,1 +1,1 @@
-# spec_client
+# Serverspec for OpenVZ
