@@ -10,6 +10,9 @@
       },
     "vault": {
       "version": "1.3.1p2"
+    },
+    "environment": {
+      "set": "vps"
     }
   }
 }
