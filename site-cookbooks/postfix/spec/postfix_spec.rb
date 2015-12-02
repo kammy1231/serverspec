@@ -1,4 +1,7 @@
 require 'spec_helper'
 
 puts "cookbook postfix"
-p property
+
+describe command("vzctl exec #{property["openvz"]["ctid"]} 'rpm -q postfix'") do
+  its(:stdout) { should match 'postfix' }
+end

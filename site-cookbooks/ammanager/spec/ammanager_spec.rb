@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 puts "cookbook ammanager"
-p property
+#p property
 #describe 'Process Running' do
 #  describe command("ps -p `cat /proc/vz/container/#{ctid}/cgroup.procs`") do
 #    its(:stdout) { should contain('ammanager') }
