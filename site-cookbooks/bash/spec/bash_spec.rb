@@ -1,5 +1,4 @@
 
-require 'spec_helper'
 puts "cookbook bash"
 
 if property["environment"]["set"] == "aws"

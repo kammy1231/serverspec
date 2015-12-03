@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 if property["environment"]["set"] == "vps"
 puts "Run Recipe postfix_vps"
 ##########################################
