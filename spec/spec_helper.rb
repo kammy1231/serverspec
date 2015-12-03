@@ -19,8 +19,8 @@ set :backend, :ssh
 # end
 
 host = ENV['TARGET_HOST']
-bname = ENV['BNAME']
-set_property JSON.parse(File.read("./nodes/#{bname}.json"))['attributes']
+node_file = ENV['NODE_FILE']
+set_property JSON.parse(File.read(node_file))['attributes']
 options = Net::SSH::Config.for(host)
 
 options[:user] ||= Etc.getlogin
