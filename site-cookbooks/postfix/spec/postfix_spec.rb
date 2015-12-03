@@ -4,7 +4,7 @@ puts "Run Recipe postfix"
 
 if property["environment"]["set"] == "vps"
   ctid = property["openvz"]["ctid"]
-  describe command("vzctl exec #{ctid} 'rpm -q postfix'") do
+  describe command(%!vzctl exec #{ctid} 'rpm -q postfix'!) do
     its(:stdout) { should match 'postfix' }
   end
 end

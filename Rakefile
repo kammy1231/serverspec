@@ -38,7 +38,7 @@ namespace :spec do
 
     all << node_short
 
-    desc "Run serverspec to #{bname}"
+    desc "Run spec to #{bname}"
     RSpec::Core::RakeTask.new(node_short.to_sym) do |t|
       ENV['TARGET_HOST'] = node
       ENV['NODE_FILE'] = node_file
