@@ -1,5 +1,6 @@
 {
   "run_list": [
-    "recipe[bash]"
+    "recipe[bash]",
+    "recipe[postfix]"
   ]
 }
