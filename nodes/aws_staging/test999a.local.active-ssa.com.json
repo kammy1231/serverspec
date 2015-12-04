@@ -1,0 +1,15 @@
+{
+  "target_host": "test999a.local.active-ssa.com",
+  "run_list": [
+    "role[a_base]",
+    "role[active_vault]"
+  ],
+  "attributes": {
+    "environment": {
+      "set": "aws"
+    },
+    "vault": {
+      "version": "2.0.1"
+    }
+  }
+}

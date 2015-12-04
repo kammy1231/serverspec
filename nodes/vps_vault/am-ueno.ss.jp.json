@@ -1,0 +1,14 @@
+{
+  "target_host": "k00a.ss.jp",
+  "run_list": [
+    "role[a_base]"
+  ],
+  "attributes": {
+    "openvz": {
+      "ctid": "224"
+    },
+    "environment": {
+      "set": "vps"
+    }
+  }
+}
