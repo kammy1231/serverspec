@@ -31,6 +31,7 @@ namespace :spec do
     end
 
     recipes.flatten!
+    recipes << "_a_base"
 
     bname = File.basename(node_file, ".json")
     node = JSON.parse(File.read(node_file))['attributes']['server']['hostname']
@@ -42,7 +43,7 @@ namespace :spec do
     RSpec::Core::RakeTask.new(node_short.to_sym) do |t|
       ENV['TARGET_HOST'] = node
       ENV['NODE_FILE'] = node_file
-      t.pattern = "site-cookbooks/\{#{recipes.join(',')}\}/spec/*_spec.rb"
+      t.pattern = "site-cookbooks/**/\{#{recipes.join(',')}\}/spec/*_spec.rb"
       t.fail_on_error = false
       puts "Run Serverspec to #{bname}"
       puts "Run List to #{recipes}"

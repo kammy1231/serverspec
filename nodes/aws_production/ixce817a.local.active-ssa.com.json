@@ -1,6 +1,6 @@
 {
   "run_list": [
-    "role[a_base]",
+    "role[infra]",
     "role[active_vault]"
   ],
   "attributes": {
