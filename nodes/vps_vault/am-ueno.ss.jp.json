@@ -1,5 +1,4 @@
 {
-  "target_host": "k00a.ss.jp",
   "run_list": [
     "role[a_base]"
   ],
@@ -9,6 +8,10 @@
     },
     "environment": {
       "set": "vps"
+    },
+    "server": {
+      "hostname": "k00a.ss.jp",
+      "local_ipv4": "10.0.0.203"
     }
   }
 }

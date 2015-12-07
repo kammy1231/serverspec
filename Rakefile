@@ -33,7 +33,7 @@ namespace :spec do
     recipes.flatten!
 
     bname = File.basename(node_file, ".json")
-    node = JSON.parse(File.read(node_file))['target_host']
+    node = JSON.parse(File.read(node_file))['attributes']['server']['hostname']
     node_short = node.split(".")[0]
 
     all << node_short

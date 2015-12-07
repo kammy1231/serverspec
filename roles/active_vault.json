@@ -1,5 +1,6 @@
 {
   "run_list": [
-    "recipe[active_vault]"
+    "recipe[active_vault]",
+    "recipe[active_common]"
   ]
 }

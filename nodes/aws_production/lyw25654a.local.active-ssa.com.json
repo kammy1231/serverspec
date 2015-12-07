@@ -1,11 +1,14 @@
 {
-  "target_host": "lyw25654a.local.active-ssa.com",
   "run_list": [
     "role[a_base]"
   ],
   "attributes": {
     "environment": {
       "set": "aws"
+    },
+    "server": {
+      "hostname": "lyw25654a.local.active-ssa.com",
+      "local_ipv4": "10.128.33.11"
     },
     "vault": {
       "version": "2.0.1"

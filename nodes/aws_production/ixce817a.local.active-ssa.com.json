@@ -5,14 +5,18 @@
   ],
   "attributes": {
     "environment": {
-      "set": "aws"
+      "set": "aws",
+      "region": "a"
     },
     "server": {
-      "hostname": "test999a.local.active-ssa.com",
-      "local_ipv4": "10.128.33.13"
+      "hostname": "ixce817a.local.active-ssa.com",
+      "local_ipv4": "10.128.33.12"
     },
     "vault": {
-      "version": "2.0.1"
+      "version": "2.0.1",
+      "limit_max_day": "365",
+      "limit_max_day_max": "365",
+      "cache_limit_max": "15"
     },
     "common": {
       "version": "3.36.0",
