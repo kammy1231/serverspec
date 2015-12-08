@@ -10,6 +10,7 @@
     },
     "server": {
       "hostname": "ixce817a.local.active-ssa.com",
+      "password": "odebuchan!",
       "local_ipv4": "10.128.33.12"
     },
     "vault": {

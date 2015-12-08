@@ -194,6 +194,12 @@ describe 'vault file/directory test' do
   describe file('/usr/local/active/vault/var/tmp/mailview') do
     it { should be_directory }
   end
+  describe file('/usr/local/active/common/web/conf/httpd/httpd_av_prefix.conf') do
+    it { should be_file }
+  end
+  describe file('/usr/local/active/common/web/conf/httpd/httpd_av_virtual.conf') do
+    it { should be_file }
+  end
 end
 
 describe 'vault ar.conf test' do

@@ -31,7 +31,7 @@ namespace :spec do
     end
 
     recipes.flatten!
-    recipes << "_a_base"
+    recipes << "_base"
 
     bname = File.basename(node_file, ".json")
     node = JSON.parse(File.read(node_file))['attributes']['server']['hostname']
