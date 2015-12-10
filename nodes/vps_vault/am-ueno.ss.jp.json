@@ -11,7 +11,8 @@
     },
     "server": {
       "hostname": "k00a.ss.jp",
-      "local_ipv4": "10.0.0.203"
+      "local_ipv4": "10.0.0.203",
+      "password": "odebuchan!"
     }
   }
 }

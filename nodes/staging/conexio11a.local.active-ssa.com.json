@@ -1,0 +1,31 @@
+{
+  "run_list": [
+    "role[infra]",
+    "role[active_vault]"
+  ],
+  "attributes": {
+    "environment": {
+      "set": "aws",
+      "region": "a"
+    },
+    "server": {
+      "hostname": "conexio11a.local.staging.active-ssa.com",
+      "password": "odebuchan!",
+      "local_ipv4": "10.129.73.22",
+      "ctid": "conexio11"
+    },
+    "vault": {
+      "version": "2.0.1",
+      "limit_max_day": "365",
+      "limit_max_day_max": "365",
+      "cache_limit_max": "100",
+      "master_host": "10.129.73.22"
+    },
+    "common": {
+      "version": "3.36.0",
+      "web": "on",
+      "db": "on",
+      "port": "80"
+    }
+  }
+}

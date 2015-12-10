@@ -1,5 +1,5 @@
-#if property[:environment][:set] == "aws"
-#puts "Run Recipe postfix_aws"
+#if property[:environment][:set] == "vps"
+#puts "Run Recipe xxx"
 
 
 #end

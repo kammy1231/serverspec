@@ -203,28 +203,39 @@ describe 'vault file/directory test' do
 end
 
 describe 'vault ar.conf test' do
+  ret = Specinfra::Runner.run_command("grep s3_cache_dir /etc/ar.conf | grep %ROOTDIR%")
   describe file('/etc/ar.conf') do
      its(:content) { should match /save_search_results_by_server = "yes"/ }
-     its(:content) { should match %!mail_dir = "/usr/local/active/vault/data/mail"! }
      its(:content) { should match /limit_max_day = "#{vault[:limit_max_day]}"/ }
      its(:content) { should match /limit_max_day_max = "#{vault[:limit_max_day_max]}"/ }
      its(:content) { should match /pack_mode_use = "yes"/ }
-     its(:content) { should match %!pack_index_dir = "/usr/local/active/vault/data/index"! }
      its(:content) { should match /use_cache = "yes"/ }
-     its(:content) { should match %!cache_dir = "/usr/local/active/vault/data/cache"! }
      its(:content) { should match %!cache_limit_max = "#{vault[:cache_limit_max]}"! }
-     its(:content) { should match %!s3_cache_dir = "/usr/local/active/vault/data/s3"! }
      its(:content) { should match %!pack_conf = "/etc/ar_pack.conf"! }
      its(:content) { should match %!arpack_opt = "-M -t -r"! }
+     its(:content) { should match %!client_id = "#{property[:server][:ctid]}"! }
+     its(:content) { should match %!data_encrypt_passwd = "#{property[:server][:ctid]}"! }
      its(:content) { should match %!session_expire = "30"! }
      its(:content) { should match %!proxy = "10.128.33.4"! }
-     its(:content) { should match %!report_server = "127.0.0.1"! }
+     its(:content) { should match %!report_server = "10.0.3.1"! }
      its(:content) { should match %!relay_host = "10.0.3.1"! }
      its(:content) { should match %!ss_maintenance = "yes"! }
+     its(:content) { should match %!master_host = "#{vault[:master_host]}"! }
      its(:content) { should match %!host = "#{property[:server][:local_ipv4]}"! }
+     if ret.exit_status == 0
+        its(:content) { should match %!mail_dir = "%ROOTDIR%/data/mail"! }
+        its(:content) { should match %!pack_index_dir = "%ROOTDIR%/data/index"! }
+        its(:content) { should match %!cache_dir = "%ROOTDIR%/data/cache"! }
+        its(:content) { should match %!s3_cache_dir = "%ROOTDIR%/data/s3"! }
+     end
+     if ret.exit_status == 1
+        its(:content) { should match %!mail_dir = "/usr/local/active/vault/data/mail"! }
+        its(:content) { should match %!pack_index_dir = "/usr/local/active/vault/data/index"! }
+        its(:content) { should match %!cache_dir = "/usr/local/active/vault/data/cache"! }
+        its(:content) { should match %!s3_cache_dir = "/usr/local/active/vault/data/s3"! }
+     end
   end
 end
-
 
 describe 'vault ar_pack.conf' do
   describe file('/etc/ar_pack.conf') do
@@ -253,4 +264,3 @@ describe  'vault cron' do
 end
 ###
 end
-#end
