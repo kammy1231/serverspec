@@ -29,7 +29,8 @@
       "port": "80"
     },
     "ec2": {
-      "ami_id": "ami-44afb145"
+      "ami_id": "ami-44afb145",
+      "sg":"avss-archiver"
     }
   }
 }
