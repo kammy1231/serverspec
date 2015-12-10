@@ -1,7 +1,8 @@
 {
   "run_list": [
     "role[infra]",
-    "role[active_vault]"
+    "role[active_vault]",
+    "role[aws_base]"
   ],
   "attributes": {
     "environment": {
@@ -26,6 +27,9 @@
       "web": "on",
       "db": "on",
       "port": "80"
+    },
+    "ec2": {
+      "ami_id": "ami-44afb145"
     }
   }
 }

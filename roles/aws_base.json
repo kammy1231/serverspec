@@ -1,5 +1,5 @@
 {
   "run_list": [
-    "recipe[a_base]"
+    "recipe[ec2metadata]"
   ]
 }
