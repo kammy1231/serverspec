@@ -3,7 +3,7 @@ require 'rspec/core/rake_task'
 require 'json'
 
 task :spec => 'spec:all'
-task :default  => :spec
+task :default => :spec
 
 def get_roles(node_file)
   roles = []
@@ -31,9 +31,9 @@ namespace :spec do
     end
 
     recipes.flatten!
-    recipes << "_base"
+    recipes << '_base'
 
-    bname = File.basename(node_file, ".json")
+    bname = File.basename(node_file, '.json')
     node = JSON.parse(File.read(node_file))['attributes']['server']['hostname']
     node_short = node.split(".")[0]
 
@@ -48,7 +48,7 @@ namespace :spec do
       puts "Run Serverspec to #{bname}"
       puts "Run List to #{recipes}"
     end
-  task :all => all
-  task :default => :all
+    task :all => all
+    task :default => :all
   end
 end

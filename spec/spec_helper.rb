@@ -4,7 +4,6 @@ require 'specinfra/helper/set'
 require 'json'
 include Specinfra::Helper::Set
 
-
 set :backend, :ssh
 
 # if ENV['ASK_SUDO_PASSWORD']
@@ -20,14 +19,13 @@ set :backend, :ssh
 
 host = ENV['TARGET_HOST']
 node_file = ENV['NODE_FILE']
-#set_property JSON.parse(File.read(node_file), symbolize_names: true)[:attributes]
 attributes = JSON.parse(File.read(node_file), symbolize_names: true)[:attributes]
 set_property attributes
-options = Net::SSH::Config.for(host)
 
+options = Net::SSH::Config.for(host)
 options[:user] ||= Etc.getlogin
+options[:password] = "#{attributes[:server][:password]}"
 
 set :host, options[:host_name] || host
-options[:password] = "#{attributes[:server][:password]}"
 set :shell, '/bin/bash'
 set :ssh_options, options
