@@ -1,4 +1,4 @@
-if property[:environment][:set] == "aws" && property[:vault][:version] == "2.0.1"
+if property[:environment][:set] == "aws" && property[:vault][:version] == "2.0.1p1"
 vault = property[:vault]
 puts "Run Recipe active_vault"
 ###

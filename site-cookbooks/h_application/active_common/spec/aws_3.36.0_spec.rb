@@ -11,7 +11,7 @@ end
 
 describe 'vault version test' do
   describe file('/usr/local/active/common/package.info') do
-    it { should contain 'version:3.36.0' }
+    it { should contain "version:#{common[:version]}$" }
   end
 end
 
