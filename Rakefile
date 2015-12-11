@@ -6,11 +6,11 @@ task :spec => 'spec:all'
 task :default => :spec
 
 def get_roles(node_file)
-  roles = []
+  $roles = []
   JSON.parse(File.read(node_file))['run_list'].each do |role|
-    roles << role.gsub(/role\[(.+)\]/, '\1')
+    $roles << role.gsub(/role\[(.+)\]/, '\1')
   end
-  roles
+  $roles
 end
 
 def get_recipes(role)
@@ -46,7 +46,7 @@ namespace :spec do
       t.pattern = "site-cookbooks/**/\{#{recipes.join(',')}\}/spec/*_spec.rb"
       t.fail_on_error = false
       puts "Run Serverspec to #{bname}"
-      puts "Run List to #{recipes}"
+      puts "Run List to #{$roles}"
     end
     task :all => all
     task :default => :all

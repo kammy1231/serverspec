@@ -29,8 +29,10 @@
       "port": "80"
     },
     "ec2": {
-      "ami_id": "ami-44afb145",
-      "sg":"avss-archiver"
+      "sg": [ "avss-archiver", "default" ],
+      "i_id": "i-b1687c13",
+      "i_type": "t2.medium",
+      "iam": "av_archiver"
     }
   }
 }
