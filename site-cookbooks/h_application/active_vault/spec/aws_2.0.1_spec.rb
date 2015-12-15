@@ -11,7 +11,7 @@ end
 
 describe 'vault version test' do
   describe file('/usr/local/active/vault/package.info') do
-    it { should contain "version:#{vault[:version]}$" }
+    it { should contain "^version:#{vault[:version]}$" }
   end
 end
 
@@ -173,17 +173,19 @@ describe 'vault file/directory test' do
   describe file('/usr/local/active/vault/data/index') do
     it { should be_directory }
   end
-  describe file('/usr/local/active/vault/data/mail/pack') do
-    it { should be_directory }
-  end
-  describe file('/usr/local/active/vault/data/mail/pack/lock_plan_util') do
-    it { should be_file }
-  end
-  describe file('/usr/local/active/vault/data/mail/pack/plan.db') do
-    it { should be_file }
-  end
-  describe file('/usr/local/active/vault/data/mail/pack/queue.db') do
-    it { should be_file }
+  if vault[:pack] == "on"
+    describe file('/usr/local/active/vault/data/mail/pack') do
+      it { should be_directory }
+    end
+    describe file('/usr/local/active/vault/data/mail/pack/lock_plan_util') do
+      it { should be_file }
+    end
+    describe file('/usr/local/active/vault/data/mail/pack/plan.db') do
+      it { should be_file }
+    end
+    describe file('/usr/local/active/vault/data/mail/pack/queue.db') do
+      it { should be_file }
+    end
   end
   describe file('/usr/local/active/vault/data/s3') do
     it { should be_directory }
@@ -220,7 +222,7 @@ describe 'vault ar.conf test' do
      its(:content) { should match %!pack_conf = "/etc/ar_pack.conf"! }
      its(:content) { should match %!arpack_opt = "-M -t -r"! }
      its(:content) { should match %!client_id = "#{property[:server][:ctid]}"! }
-     its(:content) { should match %!data_encrypt_passwd = "#{property[:server][:ctid]}"! }
+     its(:content) { should match %!data_encrypt_passwd = "#{vault[:data_encrypt_passwd]}"! }
      its(:content) { should match %!session_expire = "30"! }
      its(:content) { should match %!proxy = "10.128.33.4"! }
      its(:content) { should match %!report_server = "10.0.3.1"! }

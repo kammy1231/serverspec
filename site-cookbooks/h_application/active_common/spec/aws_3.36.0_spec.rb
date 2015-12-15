@@ -21,12 +21,14 @@ describe file('/usr/local/active/common/etc/ac.conf') do
 end
 
 describe 'common process/service test' do
-  describe process("ac_manager") do
-    it { should be_enabled }
-    it { should be_running }
-  end
-  describe process("ac_manager -D") do
-    it { should be_running }
+  if common[:manager] == "on"
+    describe process("ac_manager") do
+      it { should be_enabled }
+      it { should be_running }
+    end
+    describe process("ac_manager -D") do
+      it { should be_running }
+    end
   end
 
   if common[:db] == "on"

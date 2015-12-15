@@ -7,12 +7,12 @@
   "attributes": {
     "environment": {
       "set": "aws",
-      "region": "a"
+      "region": "c"
     },
     "server": {
-      "hostname": "ixce817a.local.active-ssa.com",
+      "hostname": "ixce817c.local.active-ssa.com",
       "password": "odebuchan!",
-      "local_ipv4": "10.128.33.12",
+      "local_ipv4": "10.128.34.12",
       "ctid": "ixce817"
     },
     "vault": {
@@ -32,7 +32,7 @@
     },
     "ec2": {
       "sg": [ "avss-archiver", "default" ],
-      "i_id": "i-b1687c13",
+      "i_id": "i-b3840611",
       "i_type": "t2.medium",
       "iam": "av_archiver"
     }
