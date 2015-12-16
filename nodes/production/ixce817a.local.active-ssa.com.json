@@ -28,7 +28,8 @@
       "version": "3.36.0",
       "web": "on",
       "db": "on",
-      "port": "80"
+      "port": "80",
+      "manager": "off"
     },
     "ec2": {
       "sg": [ "avss-archiver", "default" ],

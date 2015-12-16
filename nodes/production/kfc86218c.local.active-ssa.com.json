@@ -17,7 +17,7 @@
     },
     "vault": {
       "version": "2.0.1p1",
-      "pack": "off",
+      "pack": "on",
       "limit_max_day": "1825",
       "limit_max_day_max": "1825",
       "cache_limit_max": "10",
